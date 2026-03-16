@@ -83,6 +83,23 @@ Reduce glare from bright lecture videos and white-background PDFs. Automatically
 
 ---
 
+## Publishing to Firefox Add-ons (AMO)
+
+The extension is compatible with Firefox (uses the `browser` API polyfill and includes `browser_specific_settings` in `manifest.json`).
+
+1. **Package the extension:**
+   ```bash
+   zip -r dark-study-mode-firefox.zip dark-study-mode/ -x "*.git*"
+   ```
+
+2. Go to the [Firefox Add-on Developer Hub](https://addons.mozilla.org/en-US/developers/).
+3. Click **Submit a New Add-on**.
+4. Choose how to distribute (On this site or On your own).
+5. Upload the `dark-study-mode-firefox.zip` file.
+6. Firefox will run automated validation. Once passed, submit for review.
+
+---
+
 ## Project Structure
 
 ```

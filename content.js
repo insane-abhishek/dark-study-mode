@@ -6,6 +6,11 @@
  * dynamically loaded content, and responds to keyboard shortcuts.
  */
 
+// Firefox compatibility polyfill
+if (typeof browser === "undefined") {
+  var browser = chrome;
+}
+
 (() => {
   'use strict';
 

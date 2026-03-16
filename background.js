@@ -7,6 +7,11 @@
  * - Badge updates to show extension status
  */
 
+// Firefox compatibility polyfill
+if (typeof browser === "undefined") {
+  var browser = chrome;
+}
+
 // ─── Set default settings on installation ─────────────────────────────
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === 'install') {

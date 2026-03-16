@@ -5,6 +5,11 @@
  * handles toggle changes, and manages the site blacklist.
  */
 
+// Firefox compatibility polyfill
+if (typeof browser === "undefined") {
+  var browser = chrome;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // ─── DOM References ──────────────────────────────────────────────
   const videoDarkModeToggle = document.getElementById('videoDarkMode');
