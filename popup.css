@@ -1,0 +1,236 @@
+/*
+ * Dark Study Mode - Popup Stylesheet
+ *
+ * Premium dark-themed UI for the extension popup.
+ * Uses a refined color palette with smooth transitions.
+ */
+
+/* ─── Reset & Base ─────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  overflow: hidden;
+}
+
+/* ─── Header ───────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px 12px;
+  background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+  border-bottom: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(108, 92, 231, 0.4);
+}
+
+.logo h1 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+  background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.version {
+  font-size: 10px;
+  color: #636e72;
+  background: rgba(99, 110, 114, 0.2);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+/* ─── Status Bar ───────────────────────────────────────────────────── */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(108, 92, 231, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00b894;
+  box-shadow: 0 0 6px rgba(0, 184, 148, 0.6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-dot.inactive {
+  background: #636e72;
+  box-shadow: none;
+  animation: none;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.status-text {
+  font-size: 11px;
+  font-weight: 600;
+  color: #00b894;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.status-text.inactive {
+  color: #636e72;
+}
+
+/* ─── Controls ─────────────────────────────────────────────────────── */
+.controls {
+  padding: 6px 0;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  transition: background 0.2s ease;
+}
+
+.control-row:hover {
+  background: rgba(108, 92, 231, 0.06);
+}
+
+.control-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-icon {
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(108, 92, 231, 0.12);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.control-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #dfe6e9;
+}
+
+.control-desc {
+  display: block;
+  font-size: 11px;
+  color: #636e72;
+  margin-top: 1px;
+}
+
+/* ─── Toggle Switch ───────────────────────────────────────────────── */
+.toggle {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2d3436;
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.slider::before {
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background: #636e72;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle input:checked + .slider {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  border-color: rgba(108, 92, 231, 0.5);
+  box-shadow: 0 0 12px rgba(108, 92, 231, 0.3);
+}
+
+.toggle input:checked + .slider::before {
+  transform: translateX(18px);
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Divider ──────────────────────────────────────────────────────── */
+.divider {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 4px 18px;
+}
+
+/* ─── Footer ───────────────────────────────────────────────────────── */
+.footer {
+  padding: 10px 18px 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.shortcut-hint {
+  font-size: 11px;
+  color: #636e72;
+}
+
+kbd {
+  display: inline-block;
+  padding: 1px 5px;
+  font-family: 'Segoe UI', monospace;
+  font-size: 10px;
+  color: #dfe6e9;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 0 1px;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Study Mode</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <img src="icons/icon48.png" alt="Dark Study Mode" width="28" height="28">
+      <h1>Dark Study Mode</h1>
+    </div>
+    <span class="version">v1.0</span>
+  </div>
+
+  <!-- Status Indicator -->
+  <div class="status-bar" id="statusBar">
+    <span class="status-dot" id="statusDot"></span>
+    <span class="status-text" id="statusText">Active</span>
+  </div>
+
+  <!-- Toggle Controls -->
+  <div class="controls">
+    <!-- Video Dark Mode Toggle -->
+    <div class="control-row">
+      <div class="control-info">
+        <span class="control-icon">🎬</span>
+        <div>
+          <span class="control-label">Video Dark Mode</span>
+          <span class="control-desc">Invert bright lecture videos</span>
+        </div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="videoDarkMode" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- PDF Dark Mode Toggle -->
+    <div class="control-row">
+      <div class="control-info">
+        <span class="control-icon">📄</span>
+        <div>
+          <span class="control-label">PDF Dark Mode</span>
+          <span class="control-desc">Dark mode for embedded PDFs</span>
+        </div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="pdfDarkMode" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Blacklist Current Site -->
+    <div class="control-row">
+      <div class="control-info">
+        <span class="control-icon">🚫</span>
+        <div>
+          <span class="control-label">Disable on This Site</span>
+          <span class="control-desc" id="currentSite">Loading…</span>
+        </div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="blacklistSite">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="shortcut-hint">⌨️ <kbd>Alt</kbd> + <kbd>D</kbd> to toggle video mode</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

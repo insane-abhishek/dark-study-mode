@@ -1,0 +1,30 @@
+/*
+ * Dark Study Mode - Content Stylesheet
+ *
+ * Provides the CSS classes used by content.js for applying
+ * GPU-accelerated dark mode filters to video and PDF elements.
+ * Using will-change and transform3d hints for GPU acceleration.
+ */
+
+/* GPU-accelerated video dark filter */
+video.dsm-dark-active {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.1);
+  transition: filter 0.3s ease;
+  will-change: filter;
+  transform: translateZ(0); /* Force GPU layer */
+}
+
+/* Restore original on hover */
+video.dsm-dark-active:hover {
+  filter: none;
+}
+
+/* PDF dark filter for embed, iframe, object */
+embed.dsm-pdf-dark,
+iframe.dsm-pdf-dark,
+object.dsm-pdf-dark {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(1.05);
+  transition: filter 0.3s ease;
+  will-change: filter;
+  transform: translateZ(0);
+}
